@@ -9,7 +9,7 @@ public:
         x = abs(x); 
       } 
 
-      if (abs(x) > INT_MAX)
+      if (abs(x) > INT_MAX )
             return 0;
 
       while (x > 0) {
