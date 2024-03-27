@@ -12,15 +12,13 @@ public:
       if (abs(x) > INT_MAX )
             return 0;
 
-      while (x > 0) {
-     
+      while (x != 0) {
         reversedNum = reversedNum * 10 + (x % 10);
         x /= 10; 
-
       }
-        cout << "\nrange: " << range;
+     
       if (reversedNum < range)
-        return checkNeg?-reversedNum:reversedNum;  
+        return checkNeg?-reversedNum : reversedNum;  
       return 0;
     }
 };
