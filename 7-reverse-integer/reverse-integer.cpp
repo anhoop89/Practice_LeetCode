@@ -1,7 +1,7 @@
 class Solution {
 public:
     int reverse(int x) {
-    
+      const unsigned int range = INT_MAX;
       long long reversedNum = 0; 
       bool checkNeg = false; 
       if (x < 0 ) {
@@ -18,8 +18,8 @@ public:
         x /= 10; 
 
       }
-      
-      if (reversedNum < INT_MAX)
+        cout << "\nrange: " << range;
+      if (reversedNum < range)
         return checkNeg?-reversedNum:reversedNum;  
       return 0;
     }
