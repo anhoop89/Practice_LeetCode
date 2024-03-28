@@ -1,32 +1,20 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-
-        //  nums.at(2) return 0 1 2 
-        // normal way
-        int result = 0; 
-        int temp = 0;
-        map<int, int> countMap; 
-
-        // [2,]
-        for (int i = 0; i < nums.size(); i++) {
-            // how many times the number appear 
-            if (countMap.find(nums[i]) != countMap.end()) {
-                // found
-                cout << "\nfound:  " <<countMap[nums[i]] << "\n";
-                countMap[nums[i]] = 2; 
-            } else {
-                // not found
-                countMap.insert({nums[i], 1});
-                cout << "\ndisplay:  " <<countMap[nums[i]] << "\n";
-            }
+        int find = 0;
+        // using bitwise XOR operator. 
+        // imagine we have lots of seprate rooms
+        // each room - one number
+        // First occurance of each number will be filled in one room
+        // second occurance of a number will find that room and remove it out of the room
+        // at the end, the room will have only one room that have a number appearing only once. 
+        for (int i = 0; i < nums.size(); i++ ) {
+            cout << " find: " << find << " -- nums[i]: " << nums[i];
+            find ^= nums[i];
+            cout << "\n XOR result: " << find << endl;
         }
 
-          for (auto it = countMap.begin(); it != countMap.end(); it++) {
-               if (it->second == 1) return it->first;
-            }
-
-        // optimized way
-        return result;
+         cout << "\n final: " << find << endl;
+        return find;
     }
 };
