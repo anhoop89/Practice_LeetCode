@@ -1,7 +1,8 @@
 class Solution {
 public:
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        //  target % 2 =
+    
+        // result will collect all the combination results
         vector<vector<int>> result; 
        
         findCombination(result, {} ,candidates,target, 0);
