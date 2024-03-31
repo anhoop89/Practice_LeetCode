@@ -19,7 +19,7 @@ public:
         // reverse(result.begin(), result.end());
         // return result;
 
-        // better way
+        // another way
         for (int i = digits.size()-1; i >= 0; --i) {
                 if (digits[i]  < 9 ) {
                     digits[i]++;
