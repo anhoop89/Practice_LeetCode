@@ -25,3 +25,8 @@ public:
         return findMaxLen;
     }
 };
+/*
+what I learned from this problem: 
+- using the stack to keep track of the open parentheses
+- function used: .push(), .pop(), .top()
+*/
