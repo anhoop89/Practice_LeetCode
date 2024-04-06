@@ -16,16 +16,13 @@ public:
         return removeDuplicates(head, head->next);
     }
     ListNode* removeDuplicates(ListNode* head, ListNode* cur) {
-        if (cur == NULL)
+        if (!cur)
             return head; 
         if ( cur->val == head->val) {
             // delete at beginning 
             ListNode* temp; 
             temp = cur;
-            if (cur->next)
-                cur = cur->next; 
-            else 
-                cur = nullptr;
+            cur = cur->next?cur->next:nullptr;
             delete temp;
             head->next = cur;  
             removeDuplicates(head, head->next);
