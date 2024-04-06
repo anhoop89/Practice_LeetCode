@@ -15,14 +15,14 @@ public:
         }
 
         if (openN < n) {
-            collect += '(';
+            collect.push_back('(');
             collectParenthese(result, collect, openN + 1, closeN, n);
             collect.pop_back();
         }
 
         // after adding all the cases for open, now i need to handle for the close parentheses.
         if (closeN < openN) {
-             collect += ')';
+            collect += ')';
             collectParenthese(result,collect , openN, closeN + 1, n);
             collect.pop_back();
 
