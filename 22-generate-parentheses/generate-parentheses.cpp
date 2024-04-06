@@ -15,7 +15,7 @@ public:
         }
 
         if (openN < n) {
-            collect.push_back('(');
+            collect += '(';
             collectParenthese(result, collect, openN + 1, closeN, n);
             collect.pop_back();
         }
