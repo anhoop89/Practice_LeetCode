@@ -21,12 +21,12 @@ public:
     void helper(vector<int> & result, TreeNode* root) {
         if (!root)
             return;
-        else {
+  
         helper(result,root->left);
 
         result.push_back(root->val);
     
         helper(result, root->right);
-        }
+        
     }
 };
