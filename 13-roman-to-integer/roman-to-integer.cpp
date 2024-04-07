@@ -5,7 +5,7 @@ public:
         for (int i = 0; i < s.length(); i++) {
             switch (s[i]) {
                 case 'I': 
-                    if (i < s.length() - 1 && (s[i+1] == 'V' || s[i+1] == 'X'))
+                    if (s[i+1] == 'V' || s[i+1] == 'X')
                         sum -= 1;
                     else
                         sum += 1;
@@ -14,7 +14,7 @@ public:
                     sum += 5;
                     break;
                 case 'X':
-                    if (i < s.length() - 1 && (s[i+1] == 'L' || s[i+1] == 'C'))
+                    if (s[i+1] == 'L' || s[i+1] == 'C')
                         sum -= 10;
                     else
                         sum += 10;
@@ -23,7 +23,7 @@ public:
                     sum += 50;
                     break;
                 case 'C':
-                    if (i < s.length() - 1 && (s[i+1] == 'D' || s[i+1] == 'M'))
+                    if (s[i+1] == 'D' || s[i+1] == 'M')
                         sum -= 100;
                     else
                         sum += 100;
