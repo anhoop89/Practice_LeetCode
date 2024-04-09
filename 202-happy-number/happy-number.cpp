@@ -1,11 +1,7 @@
 class Solution {
 public:
-    bool isHappy(int n) {
-        if (n == INT_MAX)
-            return false;
-        int sum = 0;
-       
-        return  helper(n, sum);
+    bool isHappy(int n) {      
+        return  helper(n, 0);
     }
 
     bool helper(int n , int sum) {
