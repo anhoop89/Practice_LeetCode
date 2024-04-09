@@ -28,4 +28,12 @@ lA: 1    9    1    2    4   3      2     4
 lB: 3    2    4    1    9     1     2    4
        
 
+   A1  A2   A3  | B1   B2  lastB
+A  2    6   4     1    5    null
+
+
+   B1  B2   | A1   A2    A3  lastA
+B  1    5     2     6    4    null
+
+
 */  
