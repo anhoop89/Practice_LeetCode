@@ -24,3 +24,5 @@ public:
         return  helper(sum, 0);
     }
 };
+// cheating solution when we found the special case that is number 4
+// cry :( 
