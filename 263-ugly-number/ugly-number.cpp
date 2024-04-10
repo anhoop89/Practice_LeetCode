@@ -9,8 +9,7 @@ public:
         
         cout << "n:  " << n << endl;
       }
-      if ( n == 1)
-            return true;
-      return false;  
+      return n==1?true:false;
+   
     }
 };
