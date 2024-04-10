@@ -1,7 +1,6 @@
 class Solution {
 public:
     bool isUgly(int n) {
-      bool check = false;
       while ( n > 1 ) {
         if ( n % 2 == 0) n /= 2; 
         else if ( n % 3 == 0) n /= 3; 
