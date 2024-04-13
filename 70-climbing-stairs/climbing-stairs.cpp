@@ -2,18 +2,20 @@ class Solution {
 public:
     // no recursion
     int climbStairs(int n) {
+        int prev = 1; // one step
+        int curr = 2; // 2 steps
         // its own step
-        if (n <= 2) return n; 
-        // one step or two step
-        int previous = 1;
-        int current = 2;
-
-        int count = 0; 
+        if ( n <= 2) return n;
         for (int i = 3; i <= n; i++) {
-            count = previous + current; // The number of ways to reach the current step is the sum of the ways to reach the previous two steps.
-            previous = current; // Update the number of ways for the previous step (one step back).
-            current = count; // Update the number of ways for the current step.
+            int count = prev + curr;
+            prev = curr;
+            curr = count;
         }
-        return count;
+        return curr;
     }
 };
+
+/*
+i = 3: 3 ways
+i = 4: 1 + 3 ways and 3 ways + 1 => 3 ways + 2 ways = 5 ways
+*/
