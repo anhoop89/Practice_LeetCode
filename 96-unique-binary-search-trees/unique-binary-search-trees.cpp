@@ -49,6 +49,7 @@ public:
     int numTrees(int n) {
         // Store all the combination ways
         map<int, int> arr;
+        // arr is used for MEMOIZATION to avoid repetitive calculation for the combination
         arr[0] = 1; // Base case for factorial: 1 way to arrange 0 nodes
         arr[1] = 1; // Base case for factorial: 1 way to arrange 1 node
         
