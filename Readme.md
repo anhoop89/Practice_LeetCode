@@ -31,3 +31,37 @@ Dynamic Programming (DP) is a problem-solving technique used to solve problems b
 10. **Greedy choice property:** The property of certain problems where making a locally optimal choice at each step leads to a globally optimal solution.
 
 These key concepts provide a foundation for understanding and solving dynamic programming problems efficiently.
+
+# Backtracking
+
+Backtracking is a problem-solving technique used to explore all possible solutions to a problem by making a series of choices, backtracking when a choice leads to a dead end, and trying alternative choices. It is particularly useful for solving problems where there is a need to exhaustively search through all possible combinations or permutations of a set of elements.
+
+## Key Concepts
+
+- **Decision Tree:** Visualize backtracking as exploring a decision tree, where each node represents a decision or choice made at a certain stage of the problem-solving process.
+
+- **Recursion:** Implement backtracking algorithms using recursion, where the recursive function explores the decision tree by making choices at each level of recursion.
+
+- **Pruning:** Optimize the search process by pruning branches of the decision tree that cannot lead to a valid solution, avoiding unnecessary exploration.
+
+- **Base Case:** Define a base case as a stopping condition where the algorithm terminates and returns a solution or backtracks to explore alternative choices.
+
+- **Candidate List:** Generate a candidate list at each step containing all possible choices that can be made, guiding the exploration process.
+
+- **Constraint Function:** Check whether a given candidate is valid or satisfies certain conditions using a constraint function. Prune candidates that do not meet the constraints.
+
+- **Backtrack Function:** Recursively explore the decision tree, making choices, and backtracking when necessary, to systematically search the solution space.
+
+## Problem Identification
+
+Backtracking is suitable for solving problems with the following characteristics:
+
+- **Exhaustive Search:** When all possible solutions need to be explored to find the optimal or feasible solution.
+
+- **Combinatorial Optimization:** Problems involving combinations or permutations of elements, such as subset sum, permutations, combinations, and Sudoku.
+
+- **Constraint Satisfaction Problems:** Problems where solutions must satisfy certain constraints, such as the N-Queens problem and graph coloring.
+
+- **Graph Traversal:** Searching through a graph to find a path or cycle that satisfies certain conditions, such as the Hamiltonian cycle and the traveling salesman problem.
+
+Backtracking offers a flexible and efficient approach to solving problems with a large search space, allowing for the exploration of all possible solutions in a systematic manner.
