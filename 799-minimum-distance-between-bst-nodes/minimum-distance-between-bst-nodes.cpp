@@ -23,12 +23,17 @@ public:
             return;
 
         inorderTraversal(root->left, prev, min_diff);
+        cout << "1 root:  " << root->val << "|||";
+        if (prev)
+            cout << "1 prev: " << prev->val << " "  ; 
 
+        cout << endl;
         if (prev != nullptr) {
             min_diff = min(min_diff, root->val - prev->val);
         }
 
         prev = root;
+        cout << "2 prev: " << prev->val << " "; 
 
         inorderTraversal(root->right, prev, min_diff);
     }
