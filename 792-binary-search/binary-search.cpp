@@ -2,10 +2,10 @@ class Solution {
 public:
     int search(vector<int>& nums, int target) {
         int left = 0; 
-        int right = nums.size();
+        int right = nums.size() -1;
         if (nums.size() == 1)
-            if (nums[right-1] == target)
-                return right - 1; 
+            if (nums[right] == target)
+                return right; 
             else 
                 return -1;
         while (left <= right) {
