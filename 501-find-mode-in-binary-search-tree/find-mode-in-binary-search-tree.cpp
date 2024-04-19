@@ -78,8 +78,8 @@ public:
 
             if (currentCount > maxCount) {
                 maxCount = currentCount;
-                ans.clear();
-                ans.push_back(hold[i]);
+                ans.clear(); // remove all the ele in vector 
+                ans.push_back(hold[i]); // add the one having the most occurences
             } else if (currentCount == maxCount) {
                 ans.push_back(hold[i]);
             }
