@@ -30,7 +30,7 @@ public:
         
         // Update diameter if the combined depth of left and right subtrees is greater
         diameter = max(diameter, leftDepth + rightDepth);
-        
+        cout << "root: " << root->val << " + diameter: " << diameter << endl;
         // Return the maximum depth of the current subtree
         return 1 + max(leftDepth, rightDepth);
     }
