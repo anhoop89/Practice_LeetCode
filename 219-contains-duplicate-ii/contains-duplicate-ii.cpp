@@ -1,19 +1,14 @@
 class Solution {
 public:
     bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        map<int,int> store; 
 
-        // Map to store the index of each number
-        unordered_map<int, int> numIndexMap; 
-        
-        for (int i = 0; i < nums.size(); ++i) {
-            if (numIndexMap.find(nums[i]) != numIndexMap.end() && i - numIndexMap[nums[i]] <= k) {
-                // If the current number has been seen before and the difference in indices is at most k
+        for (int i = 0; i < nums.size(); i++){
+            // count function return 1 if there exists nums[i], otherwise return 0 
+            if (store.count(nums[i]) && i - store[nums[i]] <= k )
                 return true;
-            }
-            // Update the index of the current number in the map
-            numIndexMap[nums[i]] = i;
+            store[nums[i]] = i; 
         }
-        
         return false;
     }
 };
