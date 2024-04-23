@@ -28,7 +28,7 @@
 //     }
 // };
 
-// optimize solution 
+// optimize solution . what if using one loop
 class Solution {
 public:
     ListNode* removeElements(ListNode* head, int val) {
