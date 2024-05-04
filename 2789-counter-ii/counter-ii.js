@@ -3,26 +3,20 @@
  * @return { increment: Function, decrement: Function, reset: Function }
  */
 var createCounter = function(init) {
-    let result = init;
-    let count = 0;
+    const defaultValue = init;
     //  this is closure function
     return {
         increment: function() {
-            count++;
-            result++
-            return result
-            }
+            return ++init
+        }
         ,
         decrement: function() {
-            count--;
-            result--
-            return result
-            }
+            return --init
+        }
         ,
         reset: function() {   
-            result -= count;
-            count = 0;
-            return result;
+            init = defaultValue;
+            return defaultValue;
         }
     }
 };
