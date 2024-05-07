@@ -5,15 +5,11 @@
  * @return {number}
  */
 var reduce = function(nums, fn, init) {
-    let accum = init;
-    
-    if (nums == []) return init;
+    let result = init;  // Initialize result with init
 
     for (let i = 0; i < nums.length; i++) {
-        // since fn is a function, we just need to call it out.
-        console.log("Before/ ", i, nums[i], accum, nums[i] * nums[i], accum)
-        accum = fn(accum, nums[i] )
-        console.log("After/ ", i, nums[i], accum, nums[i] * nums[i], accum)
+        result = fn(result, nums[i]);  // Update result using fn
     }
-    return accum;
+
+    return result;
 };
