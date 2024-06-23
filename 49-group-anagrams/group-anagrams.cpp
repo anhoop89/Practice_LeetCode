@@ -20,15 +20,13 @@ public:
     //     for (auto & [key, val] : sorted_list) {
     //         outcome.push_back(val);
     //     }
-
     //     return outcome;
-
     // } 
-
 
     // optimize the solution
     // convert word to counting letters like a token
-    // matching token will add words having the same letters in differnt arrangement. 
+    // matching token will add words having the same letters in differnt arrangement.  
+    // Space complexity: O(N * K)  // Time complexity: O(N * K)
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
         unordered_map<string, vector<string>> sorted_list;
         vector<vector<string>> result;
