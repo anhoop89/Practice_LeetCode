@@ -3,23 +3,24 @@ public:
 
     // the solution is about to sorting each ele of strs and then map then into a cate
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
-        vector<vector<string>> result;
+        // result to store all the rearranging letter
+        vector<vector<string>> outcome; 
 
-        unordered_map<string, vector<string>> sorted_list; 
+        // method: sorting a word and group letters into a sorted word
+        unordered_map<string, vector<string>> sorted_list;
 
-        for(auto s :strs) {
-            // word is used to be sorted in aphabetically 
-            // sorted_word  ---- list of orignial words
-            string word = s;
-            //sorting each element from the strs
-            sort(word.begin(), word.end());
-            sorted_list[word].push_back(s);
+        for (auto wordInput : strs) {
+            string sortedWord = wordInput;
+            sort(sortedWord.begin(), sortedWord.end());
+            sorted_list[sortedWord].push_back(wordInput);
         }
 
-        for(auto val : sorted_list) {
-            result.push_back(val.second);
+        // since we have a hashmap , key: sortedWord, value: a list of rearranging words
+        for (auto [key, val] : sorted_list) {
+            outcome.push_back(val);
         }
 
-        return result;
+        return outcome;
+
     } 
 };
