@@ -58,7 +58,7 @@ public:
 
         string keyToken = "";
         for (int i = 0; i < countLetter.size(); i++) {
-            keyToken.append(to_string(countLetter[i]) + '#');  
+            keyToken += to_string(countLetter[i]) + '#';  
         }
         return keyToken;
     }
