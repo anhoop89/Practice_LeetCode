@@ -9,21 +9,18 @@ public:
             else
                 original[s[i]] = 1;
         }
-        // if length doesnt mathc
+        // if length doesnt matching
         if (s.length() != t.length())
             return false;
-       for (int i = 0; i < t.length(); i++) {
-            if (original.find(t[i]) != original.end()) {
-                if (original[t[i]] > 0) {
-                    original[t[i]]--;
-                    cout << "error here!!! " << t[i] << endl;
-                } 
-                else
-                    return false;
-            } 
-            else
-                return false;
-       }
+        
+        // looping in t comparing to the hashmap 
+        for (auto c : t) {
+            if (original.find(c) != original.end()) {
+                if (original[c] > 0)
+                    original[c]--;
+                else return false;
+            }   else return false;
+        }
         return true;
     }
 };
