@@ -20,22 +20,62 @@ class Solution {
 // time: On
 // space: On 
 // hashMap
+// public:
+//     bool containsDuplicate(vector<int>& nums) {
+//         // create a hasharr
+//         unordered_map<int, int> storedNum; 
+
+//         for (int i = 0; i < nums.size(); i++ ) {
+//             cout << "nums[0] : " << nums[i] << endl;
+//             if (storedNum.find(nums[i]) != storedNum.end())
+//                 return true;
+//             else 
+//                 storedNum[nums[i]] = i;
+//         }
+
+//         return false;
+//     }
+// };
+
+
+
+
+
+
+
+
+
+
+// solution: do hashSet => review must do hashSet method
+// redo
 public:
     bool containsDuplicate(vector<int>& nums) {
-        // create a hasharr
-        unordered_map<int, int> storedNum; 
-
-        for (int i = 0; i < nums.size(); i++ ) {
-            cout << "nums[0] : " << nums[i] << endl;
-            if (storedNum.find(nums[i]) != storedNum.end())
+        unordered_set<int> map; 
+        // just care about the value instead of the index
+        for (auto val: nums) {
+            if (map.find(val) != map.end()) 
                 return true;
-            else 
-                storedNum[nums[i]] = i;
+            map.insert(val);
         }
-
         return false;
     }
 };
 
 
-// solution: do hashSet => review must do hashSet method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
