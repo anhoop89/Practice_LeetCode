@@ -10,18 +10,20 @@ public:
 
         for (auto [key, value] : collection) {
             arr[value].push_back(key);
-          
+
         }
 
-    // Collect top k elements
-        for (int i = arr.size() - 1; i > 0 && k > 0; i--) {
-            for (int num : arr[i]) {
-                result.push_back(num);
+        // Collect top k elements
+        // loop the arr to display top k element
+        for (int i = arr.size() - 1 ; i > 0 && k > 0; i--  ){
+            // could be many number that display one time
+            for (auto num : arr[i]) {
+                result.push_back(num); 
                 k--;
                 if (k == 0) break;
             }
         }
-
         return result;
+
     }
 };
