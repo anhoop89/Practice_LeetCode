@@ -63,17 +63,31 @@ public:
 
   //REDO 3th time: 
 
-        bool containsDuplicate(vector<int>& nums) {
-            unordered_map<int,int> mp; 
+        // bool containsDuplicate(vector<int>& nums) {
+        //     unordered_map<int,int> mp; 
 
-            for (auto & val : nums) {
-                mp[val]++;
-            }
+        //     for (auto & val : nums) {
+        //         mp[val]++;
+        //     }
 
-            for (auto & i : mp) {
-                if (i.second > 1)   
+        //     for (auto & i : mp) {
+        //         if (i.second > 1)   
+        //             return true;
+        //     }
+        //     return false;
+        // }
+
+    //4th 
+         bool containsDuplicate(vector<int>& nums) {
+           unordered_set<int> map;
+
+           for (auto & val : nums) {
+            // found it
+                if (map.find(val) != map.end())
                     return true;
-            }
+                // else we add into the set
+                map.insert(val);
+           }
             return false;
         }
 
