@@ -1,0 +1,61 @@
+
+/*
+
+String Encode and Decode
+Design an algorithm to encode a list of strings to a single string. The encoded string is then decoded back to the original list of strings.
+
+Please implement encode and decode
+
+Example 1:
+
+Input: ["neet","code","love","you"]
+
+Output:["neet","code","love","you"]
+Example 2:
+
+Input: ["we","say",":","yes"]
+
+Output: ["we","say",":","yes"]
+Constraints:
+
+0 <= strs.length < 100
+0 <= strs[i].length < 200
+strs[i] contains only UTF-8 characters.
+*/
+
+
+class Solution {
+public:
+
+    string encode(vector<string>& strs) {
+        string result; 
+        for (auto & s : strs) {
+            result += to_string(s.length()) + string("#") + s;
+        }
+        cout << result;
+        return result;
+    }
+
+    vector<string> decode(string s) {
+        vector<string>result;
+        string getCount;
+        for (int i = 0; i < s.length(); i++ ){
+            if (s[i] == '#') {
+                int lenWord = stoi(getCount); 
+                int j = 0;
+                string collectWord; 
+                while ( j < lenWord) {
+                    collectWord += s[i + j + 1];
+                    j++;
+                }
+                result.push_back(collectWord);
+                i += lenWord;  // Move index past the collected word and '#'
+                getCount.clear();
+            } else   
+              getCount += s[i];
+            
+                
+        }
+        return result;
+    }
+};
