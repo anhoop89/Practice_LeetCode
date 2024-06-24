@@ -49,16 +49,54 @@ class Solution {
 // solution: do hashSet => review must do hashSet method
 // redo
 public:
-    bool containsDuplicate(vector<int>& nums) {
-        unordered_set<int> map; 
-        // just care about the value instead of the index
-        for (auto val: nums) {
-            if (map.find(val) != map.end()) 
-                return true;
-            map.insert(val);
+    // bool containsDuplicate(vector<int>& nums) {
+    //     unordered_set<int> map; 
+    //     // just care about the value instead of the index
+    //     for (auto val: nums) {
+    //         if (map.find(val) != map.end()) 
+    //             return true;
+    //         map.insert(val);
+    //     }
+    //     return false;
+    // }
+
+
+  //REDO 3th time: 
+
+        bool containsDuplicate(vector<int>& nums) {
+            unordered_map<int,int> mp; 
+
+            for (auto & val : nums) {
+                mp[val]++;
+            }
+
+            for (auto & i : mp) {
+                if (i.second > 1)   
+                    return true;
+            }
+            return false;
         }
-        return false;
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 };
 
 
