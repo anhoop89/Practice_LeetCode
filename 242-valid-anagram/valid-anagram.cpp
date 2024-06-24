@@ -60,7 +60,7 @@ public:
             mp[val]++;
         
         for (auto & val: t) {
-            if (mp.find(val) != mp.end() && mp[val] > 0) {
+            if (mp[val] > 0) {
                 mp[val]--;
             } else
                 return false;
