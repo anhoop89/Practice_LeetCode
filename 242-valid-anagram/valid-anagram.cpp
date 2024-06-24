@@ -28,27 +28,45 @@ public:
 
     // review
 
-    bool isAnagram(string s, string t) {
-        unordered_map <char, int> storedS; 
+    // bool isAnagram(string s, string t) {
+    //     unordered_map <char, int> storedS; 
 
-        if (s.length() != t.length())   return false;
-        for (auto val : s) {
-            storedS[val]++;
-        }
+    //     if (s.length() != t.length())   return false;
 
-        for (auto val : t) {
-            if (storedS[val] > 0)
-            // we found it, update the count
-                storedS[val]--;
-            else
-                return false;
+    //      // Count the frequency of each character in string s
+    //     for (auto val : s) {
+    //         storedS[val]++;
+    //     }
+
+    //     for (auto val : t) {
+    //         cout << "storedS[val]: "<< val << " "  << storedS[val];
+    //         if (storedS[val] > 0)
+    //         // we found it, update the count
+    //             storedS[val]--;
+    //         else
+    //             return false;
           
-        }
+    //     }
 
+    //     return true;
+    
+    // }
+
+    //3rd
+    bool isAnagram(string s, string t) {
+        unordered_map<char, int> mp; 
+        if (s.length() != t.length())   return false;
+        for ( auto & val : s)
+            mp[val]++;
+        
+        for (auto & val: t) {
+            if (mp.find(val) != mp.end() && mp[val] > 0) {
+                mp[val]--;
+            } else
+                return false;
+        }
         return true;
     }
-
-
 
 
 
