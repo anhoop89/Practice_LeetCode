@@ -12,12 +12,16 @@ public:
             arr[value].push_back(key);
 
         }
-
+        vector<int> test{10,2};
+        for (auto & i : test)
+            cout << i << endl;
         // Collect top k elements
         // loop the arr to display top k element
         for (int i = arr.size() - 1 ; i > 0 && k > 0; i--  ){
             // could be many number that display one time
+            // if arr[i] is empty, the inner loop won't run!!!
             for (auto num : arr[i]) {
+                cout << "checking :  " << i << endl; 
                 result.push_back(num); 
                 k--;
                 if (k == 0) break;
