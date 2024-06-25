@@ -78,18 +78,50 @@ public:
         // }
 
     //4th 
-         bool containsDuplicate(vector<int>& nums) {
-           unordered_set<int> map;
+        //  bool containsDuplicate(vector<int>& nums) {
+        //    unordered_set<int> map;
 
-           for (auto & val : nums) {
-            // found it
-                if (map.find(val) != map.end())
-                    return true;
-                // else we add into the set
-                map.insert(val);
-           }
-            return false;
+        //    for (auto & val : nums) {
+        //     // found it
+        //         if (map.find(val) != map.end())
+        //             return true;
+        //         // else we add into the set
+        //         map.insert(val);
+        //    }
+        //     return false;
+        // }
+
+ 
+    //5th
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_set <int> mp; 
+
+        for (auto & val: nums) {
+            if (mp.find(val) != mp.end())
+                return true;
+            mp.insert(val);
         }
+
+        return false;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
