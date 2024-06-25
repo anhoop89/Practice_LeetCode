@@ -53,16 +53,35 @@ public:
     // }
 
     //3rd
-    bool isAnagram(string s, string t) {
-        unordered_map<char, int> mp; 
-        if (s.length() != t.length())   return false;
-        for ( auto & val : s)
-            mp[val]++;
+    // bool isAnagram(string s, string t) {
+    //     unordered_map<char, int> mp; 
+    //     if (s.length() != t.length())   return false;
+    //     for ( auto & val : s)
+    //         mp[val]++;
         
-        for (auto & val: t) {
-            if (mp[val] > 0) {
+    //     for (auto & val: t) {
+    //         if (mp[val] > 0) {
+    //             mp[val]--;
+    //         } else
+    //             return false;
+    //     }
+    //     return true;
+    // }
+
+
+    //4
+    bool isAnagram(string s, string t) {
+        unordered_map <char, int > mp;
+        if (s.length() != t.length()) return false;
+
+        for (auto & val:s ){
+            mp[val]++;
+        }
+
+        for (auto & val: t){
+            if (mp[val] > 0 ){
                 mp[val]--;
-            } else
+            } else 
                 return false;
         }
         return true;
@@ -76,6 +95,34 @@ public:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////
 
 
 
