@@ -70,23 +70,32 @@ public:
 
 
     //4
-    bool isAnagram(string s, string t) {
-        unordered_map <char, int > mp;
+    // bool isAnagram(string s, string t) {
+    //     unordered_map <char, int > mp;
+    //     if (s.length() != t.length()) return false;
+
+    //     for (auto & val:s ){
+    //         mp[val]++;
+    //     }
+
+    //     for (auto & val: t){
+    //         if (mp[val] > 0 ){
+    //             mp[val]--;
+    //         } else 
+    //             return false;
+    //     }
+    //     return true;
+    // }
+     bool isAnagram(string s, string t) {
+        sort(s.begin(), s.end());
+        sort(t.begin(), t.end());
+
         if (s.length() != t.length()) return false;
 
-        for (auto & val:s ){
-            mp[val]++;
-        }
-
-        for (auto & val: t){
-            if (mp[val] > 0 ){
-                mp[val]--;
-            } else 
-                return false;
-        }
+        if (s != t) return false;
+    
         return true;
-    }
-
+     }
 
 
 
