@@ -3,11 +3,11 @@ public:
     using ll = long long;
     long long maxScore(vector<int>& nums, int x) {
         int n = nums.size();
-        vector<vector<long long>> memo(n, vector<long long>(2, -1)); 
+        vector<vector<ll>> memo(n, vector<long long>(2, -1)); 
         return dp(nums, x, 1, nums[0] & 1, memo) + nums[0];
     }
 
-    long long dp(vector<int>& nums, int x, int index, int parity, vector<vector<long long>>& memo) {
+    long long dp(vector<int>& nums, int x, int index, int parity, vector<vector<ll>>& memo) {
         if (index >= nums.size()) {
             return 0;
         }
