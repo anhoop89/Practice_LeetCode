@@ -93,19 +93,30 @@ public:
 
  
     //5th
-    bool containsDuplicate(vector<int>& nums) {
-        unordered_set <int> mp; 
+    // bool containsDuplicate(vector<int>& nums) {
+    //     unordered_set <int> mp; 
 
-        for (auto & val: nums) {
+    //     for (auto & val: nums) {
+    //         if (mp.find(val) != mp.end())
+    //             return true;
+    //         mp.insert(val);
+    //     }
+
+    //     return false;
+    // }
+
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_set<int> mp; 
+
+        for (auto & val : nums) {
             if (mp.find(val) != mp.end())
                 return true;
             mp.insert(val);
         }
 
         return false;
+
     }
-
-
 
 
 
