@@ -107,15 +107,15 @@ public:
 
     //6
     bool containsDuplicate(vector<int>& nums) {
-        unordered_set<int> mp; 
+        // unordered_set<int> mp; 
 
-        for (auto & val : nums) {
-            if (mp.find(val) != mp.end())
-                return true;
-            mp.insert(val);
-        }
+        // for (auto & val : nums) {
+        //     if (mp.find(val) != mp.end())
+        //         return true;
+        //     mp.insert(val);
+        // }
 
-        return false;
+        // return false;
 
         //too slow
         // unordered_map <int, int> mp; 
@@ -128,6 +128,21 @@ public:
         //         return true;
         // }
         // return false;
+
+        // sorting method
+        sort(nums.begin(), nums.end());
+
+        if (nums.size() < 2) return false;
+
+        for (int i = 0; i <= nums.size(); i++){
+            if ( i+1 == nums.size())
+                return false;
+            if (nums[i] == nums[i+1])  
+                return true;
+          
+        }
+
+        return false;
     }
 
 
