@@ -86,16 +86,33 @@ public:
     //     }
     //     return true;
     // }
+
+    //5
      bool isAnagram(string s, string t) {
-        sort(s.begin(), s.end());
-        sort(t.begin(), t.end());
+        // sort(s.begin(), s.end());
+        // sort(t.begin(), t.end());
 
-        if (s.length() != t.length()) return false;
+        // if (s.length() != t.length()) return false;
 
-        if (s != t) return false;
+        // if (s != t) return false;
     
+        // return true;
+     
+     // size for the vevtor: 26
+     // initialize the vector ele: 0
+     vector<int> count(26,0); 
+
+        for (auto & val: s)
+            count[val - 'a']++;
+        for (auto & val: t)
+            count[val - 'a']--;
+        for (auto & val: count)
+            if (val != 0)
+                return false;
         return true;
      }
+
+
 
 
 
