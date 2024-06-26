@@ -107,6 +107,9 @@ public:
         for (auto & val: t)
             count[val - 'a']--;
         for (auto & val: count)
+            // cant be equal 0
+            // bc test for a and ab 
+            // count[b] would be -1 
             if (val != 0)
                 return false;
         return true;
