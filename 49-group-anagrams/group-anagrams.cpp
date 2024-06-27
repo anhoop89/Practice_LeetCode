@@ -7,8 +7,9 @@ public:
         unordered_map <string, vector<string>> mp;
         vector<vector<string>> res; 
         for (auto & val : strs) {
-            string token = getKey(val);
-            mp[token].push_back(val);
+            string hold = val;
+            sort(val.begin(), val.end());
+            mp[val].push_back(hold);
         }
 
         for (auto & [key, val] : mp) {
@@ -18,16 +19,5 @@ public:
         return res;
     }
 
-    string getKey(string word) {
-        vector<int> count(26,0);
-        for (auto & letter: word) {
-            count[letter - 'a']++;
-        }
-
-        string key; 
-        for (auto & val : count){
-            key += to_string(val) + '#';
-        }
-        return key;
-    }
+  
 };
