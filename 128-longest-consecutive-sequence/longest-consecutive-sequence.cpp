@@ -10,10 +10,9 @@ public:
         for (int i = 1; i < nums.size(); i++) {
            // cout << "before: " <<  nums[i-1] << "  " << nums[i] << endl;
             if (nums[i-1] == nums[i] || nums[i] == nums[i-1] + 1) {
-                cout << nums[i-1] << "  " << nums[i] << endl;
                 ++tempMax;
                 if (nums[i-1] == nums[i]) --tempMax;
-                if (tempMax != 0 && tempMax > max) max = tempMax;
+                if ( tempMax > max) max = tempMax;
             } else {
                 tempMax = 0;
             }
