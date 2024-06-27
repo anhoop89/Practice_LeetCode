@@ -61,41 +61,39 @@ public:
 
 
 
+/*
+    hashmap: val | count
 
+    vector with the size of nums : eg: 6
+    Edge case: if more than one number having the same count
+    we have to use another vector to store them 
+    -> vector<vector<int>>  
+    count: 1  2  3  4  5  6
+    val:   3  2  1     
+*/
 
     vector<int> topKFrequent(vector<int>& nums, int k) {
-
-        unordered_map<int, int> mp; 
-        for (auto & val : nums) {
-            mp[val]++;
+        unordered_map<int, int> count; 
+        for (auto & number : nums) {
+            count[number]++;
         }
 
-        // key is number 
-        // val is count
-
-        // store 
-        //count    1 2 3 4 5 6 
-        //num      6     3   1 
+        // store in an arr sorting by the index
         vector<vector<int>> store(nums.size() + 1);
-        for (auto & [key, val]: mp) {
-            store[val].push_back(key);
+        for(auto &[num, ct]: count) {
+            store[ct].push_back(num);
         }
 
         vector<int> res; 
-        for(int i = nums.size(); i > 0 & k > 0 ; i--) {
-            for (auto & val: store[i]) // more than one 
-            {
+        for ( int i = nums.size(); i > 0 && k > 0; i-- ) {
+            for ( auto & val : store[i]) {
                 res.push_back(val);
                 if (--k == 0) return res;
             }
         }
+
         return res;
-
-
     }
-
-
-
 
 //  hashtable: 
 
