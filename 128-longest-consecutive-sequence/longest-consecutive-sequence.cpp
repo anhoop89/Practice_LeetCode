@@ -39,9 +39,10 @@ public:
                 while (arr.find(nums[i] + len) != arr.end()) {
                     len++;
                 }
+                  if ( max < len) max = len;
             }
 
-           if ( max < len) max = len;
+         
         }
 
         return max;
