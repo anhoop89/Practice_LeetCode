@@ -23,23 +23,21 @@ public:
     // }
 
     int longestConsecutive(vector<int>& nums) {
-        unordered_set<int> arr(nums.size());
+        unordered_set<int> arr(nums.begin(), nums.end());
 
-        for (auto & val: nums) {
-            arr.insert(val);
-        }
+    
       
         int len; 
         int max = 1;
 
         if (nums.empty()) return 0;
-        for (int i = 0; i < nums.size(); i++){
-            if (arr.find(nums[i] - 1) == arr.end()) {
+        for (auto & i : arr){
+            if (arr.find(i - 1) == arr.end()) {
                 len = 0;
-                while (arr.find(nums[i] + len) != arr.end()) {
+                while (arr.find(i + len) != arr.end()) {
                     len++;
                 }
-                  if ( max < len) max = len;
+                if ( max < len) max = len;
             }
 
          
