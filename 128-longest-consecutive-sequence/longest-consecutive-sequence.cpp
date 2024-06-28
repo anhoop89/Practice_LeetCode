@@ -24,15 +24,13 @@ public:
 
     int longestConsecutive(vector<int>& nums) {
         unordered_set<int> arr(nums.begin(), nums.end());
-
-    
-      
+ 
         int len; 
         int max = 1;
 
         if (nums.empty()) return 0;
         for (auto & i : arr){
-            if (arr.find(i - 1) == arr.end()) {
+            if (!arr.count(i-1)) {
                 len = 0;
                 while (arr.find(i + len) != arr.end()) {
                     len++;
