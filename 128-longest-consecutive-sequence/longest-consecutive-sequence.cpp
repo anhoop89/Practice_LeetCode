@@ -22,27 +22,85 @@ public:
     //     return max + 1;
     // }
 
-    int longestConsecutive(vector<int>& nums) {
-        unordered_set<int> arr(nums.begin(), nums.end());
+    // int longestConsecutive(vector<int>& nums) {
+    //     unordered_set<int> arr(nums.begin(), nums.end());
  
-        int len; 
-        int max = 1;
+    //     int len; 
+    //     int max = 1;
 
-        if (nums.empty()) return 0;
-        for (auto & i : arr){
-            if (!arr.count(i-1)) {
-                len = 0;
-                while (arr.find(i + len) != arr.end()) {
-                    len++;
-                }
-                if ( max < len) max = len;
-            }
+    //     if (nums.empty()) return 0;
+    //     for (auto & i : arr){
+
+    //         // checking if the ele with the val ( i  - 1) exists in the arr set or not.
+    //         if (!arr.count(i-1)) {
+    //             len = 0;
+    //             while (arr.find(i + len) != arr.end()) {
+    //                 len++;
+    //             }
+    //             if ( max < len) max = len;
+    //         }
 
          
-        }
+    //     }
 
-        return max;
+    //     return max;
         
 
+    // }
+
+
+    int longestConsecutive(vector<int>& nums) {
+        // store all the unique nums in a set arr
+        unordered_set<int> uniqueArr(nums.begin(), nums.end());
+
+        // loop over the set, check if there's any consecutive sequence 
+
+        int res = 0; 
+       
+
+        for(auto & val : uniqueArr) {
+            int tempMax = 0;
+            // 100 101 
+            // check if the nums is at the begining
+            if (!uniqueArr.count(val - 1)) {
+                int temp = val;
+                while (uniqueArr.count(temp) == 1) {
+                    cout << "data: " << temp << endl;
+                    tempMax++;
+                    temp++;
+                }
+
+                res = max(res, tempMax);
+            }
+        }
+        return res;
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 };
