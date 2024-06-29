@@ -63,11 +63,8 @@ public:
             // 100 101 
             // check if the nums is at the begining
             if (!uniqueArr.count(val - 1)) {
-                int temp = val;
-                while (uniqueArr.count(temp) == 1) {
-                    cout << "data: " << temp << endl;
+                while (uniqueArr.count(val + tempMax) == 1) {
                     tempMax++;
-                    temp++;
                 }
 
                 res = max(res, tempMax);
