@@ -7,13 +7,15 @@ public:
 
         while ( i <= j) {
             cout << s[i] << " - " << i << " --- " << s[j] << " - " << j << endl;
-            while (i < j && !isalnum(s[i]))
+            if (!isalnum(s[i])) {
                 ++i;
+                continue;
+            }
 
-            while (i < j && !isalnum(s[j]))
+            if (!isalnum(s[j])) {
                 --j;
-
-            
+                continue;
+            }
 
             if (i < j && tolower(s[i]) != tolower(s[j]))
                 return false;
