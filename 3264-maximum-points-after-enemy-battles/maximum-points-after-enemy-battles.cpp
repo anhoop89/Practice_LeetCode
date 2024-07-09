@@ -8,15 +8,13 @@ public:
         sort(e.begin(), e.end());
         int first = e[0]; 
         if (c < first) return 0;
-        for (int i = e.size() - 1; i >=0; ){
-           if (c >= first) {
-                p += c / first;
-                c = c % first;
+        for (int i = e.size(); i >0; ){
+           if (c >= first) { 
+                p += c / first; // total point
+                c = c % first; // remainder
             } else 
              {
-                c += e[i];
-                i--;
-               
+                c += e[--i];
              }
             
         }
