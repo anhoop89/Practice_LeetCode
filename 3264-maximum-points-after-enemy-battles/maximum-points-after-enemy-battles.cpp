@@ -13,10 +13,7 @@ public:
                 p += c / first; // total point
                 c = c % first; // remainder
             } else 
-             {
                 c += e[--i];
-             }
-            
         }
         return p;
     }
