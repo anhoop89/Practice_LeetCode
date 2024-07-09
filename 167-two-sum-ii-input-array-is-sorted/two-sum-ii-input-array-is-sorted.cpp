@@ -9,9 +9,9 @@ public:
             int check = n[i] + n[j];
             if ( check > target)
                 --j;
-            if ( check < target)
+            else if ( check < target)
                 ++i;
-            if (check == target)
+            else
                 return {i+1, j+1};
         }
         return {};
