@@ -25,6 +25,7 @@ public:
                     while (l < r && nums[r] == nums[r - 1]) --r;
                     ++l;
                     --r;
+                    // l > r will be out of the loop
                 }
             }
             // Move i to the next different number to avoid duplicates
