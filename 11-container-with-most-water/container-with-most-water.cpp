@@ -6,7 +6,6 @@ public:
         int res = -111111;
         while ( l < r) {
             int temp = (r - l ) * min(h[l],h[r]);
-            cout << "temp: " <<temp << min(h[l],h[r])<<  endl;
             res = max(res, temp);
             if (h[l] >= h[r]) 
                 --r; 
