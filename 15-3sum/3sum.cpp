@@ -1,37 +1,37 @@
 class Solution {
 public:
+    // -4, -1, -1, 0, 1, 2
     vector<vector<int>> threeSum(vector<int>& nums) {
         vector<vector<int>> res;
-        sort(nums.begin(), nums.end());
-
-        int i = 0;
-        int mid = nums.size() / 2 + 1;
-
-        while (i < nums.size()) {
-            int c = 0 - nums[i];
-            int r = nums.size() - 1;
-            int l = i + 1;
-
-            while (l < r) {
-                int find = nums[l] + nums[r];
-                if (find > c)
-                    --r;
-                else if (find < c)
-                    ++l;
-                else {
-                    res.push_back({nums[i], nums[l], nums[r]});
-                    // Move l and r to the next different numbers to avoid duplicates
-                    while (l < r && nums[l] == nums[l + 1]) ++l;
-                    while (l < r && nums[r] == nums[r - 1]) --r;
-                    ++l;
-                    --r;
-                    // l > r will be out of the loop
-                }
+        sort(nums.begin(), nums.end()); 
+        
+        int i = 0; 
+        int size = nums.size();
+        while ( i < size) {
+            // -4 -1 -1 0 1 2
+            int find = - nums[i]; 
+            int j = i+1; 
+            int k = size - 1;
+            while ( j < k ) {
+                int check = nums[j] + nums[k];
+                if (check < find ) ++j;
+                else if ( check > find ) --k;
+                else
+                {
+                    res.push_back({nums[i], nums[j], nums[k]});
+                    while ( j < k && nums[k] == nums[k-1]) --k;
+                    while ( j < k && nums[j] == nums[j+1]) ++j;
+                    ++j;
+                    --k;
+                } 
+               
+             
             }
-            // Move i to the next different number to avoid duplicates
-            while (i + 1 < nums.size() && nums[i] == nums[i + 1]) ++i;
+        
+            while (i + 1 < size && nums[i] == nums[i+1]) ++i;
             ++i;
         }
+
         return res;
     }
 };
