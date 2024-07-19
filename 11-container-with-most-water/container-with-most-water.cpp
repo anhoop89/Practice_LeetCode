@@ -1,17 +1,17 @@
 class Solution {
 public:
     int maxArea(vector<int>& h) {
-        int l = 0; 
-        int r = h.size() - 1;
-        int res = -111111;
-        while ( l < r) {
-            int temp = (r - l ) * min(h[l],h[r]);
-            res = max(res, temp);
-            if (h[l] >= h[r]) 
-                --r; 
-            else 
-                ++l;
+        int l = 0, r = h.size() - 1;
+        int maxArea = -1000000;
+        while ( l  < r) {
+            int area = ( r - l ) * min(h[l], h[r]);
+            maxArea = max(maxArea, area);
+            if ( h[l] < h[r] )
+                l++;
+            else
+                r--;
         }
-        return res;
+
+        return maxArea;
     }
 };
