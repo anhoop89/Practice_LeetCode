@@ -2,9 +2,7 @@ class Solution {
 public:
     int maxOperations(string s) {
         s += '1';
-
         int countOne = 0;
-
         int sumOne = 0;
         for (int i = 0; i < s.size() - 1; i++)
         {
