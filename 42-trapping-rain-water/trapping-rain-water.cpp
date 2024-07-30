@@ -8,7 +8,6 @@ public:
         int res = 0;
        
         while ( l < r ) {
-            
             maxL = max(h[l], maxL); 
             maxR = max(h[r], maxR); 
             if (h[l] < h[r]) {
@@ -21,7 +20,6 @@ public:
                 --r;
             }
         }
-
         return res;
     }
 };
