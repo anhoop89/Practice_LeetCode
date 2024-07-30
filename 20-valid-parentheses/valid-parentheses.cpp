@@ -1,28 +1,27 @@
 class Solution {
 public:
     bool isValid(string s) {
-        stack<char> storingOpening ;
-        // inital input
-        map<char, char> parenthesesPair;
-        parenthesesPair['('] = ')';
-        parenthesesPair['['] = ']';
-        parenthesesPair['{'] = '}';
-        
-        // loop for checking
-        
-        for (int i = 0; i < s.length(); i++) {
-            char input = s[i];
-            if (parenthesesPair.find(input) != parenthesesPair.end()) {
-                storingOpening.push(input);
-            } else {
-                if ( storingOpening.empty() || parenthesesPair[storingOpening.top()] != input)
-                    return false;
-                storingOpening.pop();
-            }
-        }
+        unordered_map<char, char> mp{
+            {']', '['},
+            {'}', '{'}, 
+            {')', '('}
+        };
 
-        return storingOpening.empty();
+        stack<char> check; 
+
+        for (auto val : s) {
+            if (mp[val]){
+                // check whether the stack is empty or 
+                // the pop doesn't match with the mp result
+                // return false
+                if (check.empty() || check.top() != mp[val]) 
+                    return false;
+                check.pop();
+            } else 
+                check.push(val);
+        }
+        
+    
+        return check.empty() ? true: false;
     }
 };
-
-
