@@ -15,10 +15,10 @@ public:
                 // find min from both max - current index 
                 // --> trapped water
                 res += min(maxL, maxR) - h[l];
-                l++;
+                ++l;
             } else {
                 res += min(maxL, maxR) - h[r];
-                r--;
+                --r;
             }
         }
 
