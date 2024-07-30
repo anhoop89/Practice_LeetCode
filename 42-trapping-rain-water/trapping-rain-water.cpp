@@ -8,18 +8,15 @@ public:
         int res = 0;
        
         while ( l < r ) {
-            cout << "l: " << h[l] << " --- r: " << h[r] << endl;
+            
             maxL = max(h[l], maxL); 
             maxR = max(h[r], maxR); 
             if (h[l] < h[r]) {
-             
+                // find min from both max - current index 
+                // --> trapped water
                 res += min(maxL, maxR) - h[l];
-
-                cout << "l < r | maxL :  " << maxL << " -- maxR :  " << maxR << endl; 
                 l++;
             } else {
-          
-                cout << "l >= r | maxL :  " << maxL << " -- maxR :  " << maxR << endl; 
                 res += min(maxL, maxR) - h[r];
                 r--;
             }
