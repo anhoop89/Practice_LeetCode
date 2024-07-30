@@ -22,6 +22,6 @@ public:
         }
         
     
-        return check.empty() ? true: false;
+        return check.empty(); // check.empty() return true 
     }
 };
