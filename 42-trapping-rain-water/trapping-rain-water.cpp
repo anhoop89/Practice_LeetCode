@@ -1,25 +1,26 @@
 class Solution {
 public:
     int trap(vector<int>& h) {
-        int l = 0;
-        int r = h.size() -1 ;
-        int maxL = 0; 
-        int maxR = 0; 
+        int maxL = 0;
+        int maxR = 0;
+
         int res = 0;
-       
-        while ( l < r ) {
-            maxL = max(h[l], maxL); 
-            maxR = max(h[r], maxR); 
+
+        int l = 0;
+        int r = h.size() - 1;
+
+        while ( l  < r ) {
+            maxL = max(maxL, h[l]);
+            maxR = max(maxR, h[r]);
+            int mini = min(maxL, maxR);
             if (h[l] < h[r]) {
-                // find min from both max - current index 
-                // --> trapped water
-                res += min(maxL, maxR) - h[l];
+               res += mini - h[l];
                 ++l;
             } else {
-                res += min(maxL, maxR) - h[r];
+                res += mini - h[r];
                 --r;
             }
-        }
+        } 
         return res;
     }
 };
