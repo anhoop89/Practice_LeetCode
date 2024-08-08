@@ -3,21 +3,19 @@ public:
     MinStack() {
         
     }
-    
+    // this time is to do save memory
     void push(int val) {
         stk.push(val);
-        
         if (min_stk.empty() || val <= min_stk.top())
             min_stk.push(val);
-        else
-            min_stk.push(min_stk.top());
     }
     
     void pop() {
-        if (!stk.empty()) {
+        if (stk.top() == min_stk.top()) {
             min_stk.pop();
             stk.pop();
-        }
+        } else
+            stk.pop();
     }
     
     int top() {
