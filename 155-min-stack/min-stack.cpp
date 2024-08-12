@@ -12,9 +12,8 @@ public:
     }
     
     void pop() {
-        if (st.top() == min_st.top()) {
+        if (st.top() == min_st.top())
             min_st.pop();      
-        } 
         st.pop();
     }
     
