@@ -1,52 +1,48 @@
 class Solution {
-    string makeDigit(int num, int digits) {
-        string s = to_string(num);
-        int n = s.size();
-        for(int i=0;i<digits-n;i++)
-            s = "0" + s;
-        return s;
-    }
-
-    unordered_set<string> makeSwapChanges(int num, int digits) {
-        string s = makeDigit(num, digits);
-        unordered_set<string> poss;
-        poss.insert(s);
-        
-        for(int i = 0; i < digits; ++i) {
-            for(int j = i + 1; j < digits; ++j) {
-                swap(s[i], s[j]);
-                poss.insert(s);
-                for(int i1 = 0; i1 < digits; ++i1) {
-                    for(int j1 = i1+1; j1 < digits; ++j1) {
-                        if(s[i1] != s[j1]) {
-                            swap(s[i1], s[j1]);
-                            poss.insert(s);
-                            swap(s[j1], s[i1]);
-                        }
-                    }
-                }
-                swap(s[i], s[j]);
-            }
-        }
-        return poss;
-    }
-
 public:
     int countPairs(vector<int>& nums) {
-        int n = nums.size();
-        int digits = to_string(*max_element(nums.begin(),nums.end())).size();
-
-        unordered_map<string, int> mp;
+        unordered_map<int,int> m;
         int ans = 0;
-        for(int i = 0; i < n; ++i) {
-            for(const auto& s : makeSwapChanges(nums[i], digits)) {
-                if(mp.count(s)) {
-                    ans += mp[s];
+        sort(nums.begin(), nums.end());
+        for (auto num : nums) {
+            // count all almost equal nums
+            string s = to_string(num);
+            int n = s.size();
+            ans += m[num];
+            unordered_set<int> vis;
+            for (int i = 0; i < n; i++) {
+                for (int j = i+1; j < n; j++) {
+                    if (s[i] == s[j]) continue;
+                    swap(s[i], s[j]);
+                    int curr = stoi(s);
+                    if (!vis.count(curr)) {
+                        ans += m[curr];
+                        vis.insert(curr);
+                        //if (m[curr] > 0) 
+                            //cout << "1 swap  - num: " << num << " ct: " << stoi(s) << '\n';
+                    }
+                    for (int k = 0; k < n; k++) {
+                        for (int l = k+1; l < n; l++) {
+                            if (i == k && j == l) continue;
+                            if (s[k] == s[l]) continue;
+                            swap(s[k], s[l]);
+                            int curry = stoi(s);
+                            if (!vis.count(curry)) {
+                                ans += m[curry];
+                                vis.insert(curry);
+                                //if (m[curry] > 0)
+                                    //cout << "2 swaps - num: " << num << " ct: " << stoi(s) << '\n';
+                            }
+                            
+                            swap(s[k], s[l]);
+                        
+                        }
+                    }
+                    swap(s[i], s[j]);
                 }
             }
-            mp[makeDigit(nums[i], digits)]++;
+            m[num]++;
         }
-
         return ans;
     }
 };
