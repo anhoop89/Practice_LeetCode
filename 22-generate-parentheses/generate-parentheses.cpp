@@ -2,22 +2,21 @@ class Solution {
 public:
   
     vector<string> generateParenthesis(int n) {
+        // need a var to save result
         vector<string> res;
-        function<void(int, int, string)> result = [&](int o, int c, string update)
-        {
-            if (n == o && o == c) {
+        // defind the function
+        function<void(int, int, string)> result = [&](int open, int close, string update) {
+            // if open == close == n 
+            if (open == n && open == close) {
                 res.push_back(update);
                 return;
             }
 
-            if (o < n) {
-                result(o + 1, c , update + "(");
-            } 
-
-            if ( c < o) {
-                result(o , c + 1, update + ")");
-
-            }
+            if (open < n) 
+                result(open + 1, close, update + "(");
+            
+            if (close < open)
+                result(open, close + 1, update + ")");
         };
 
         result(0,0,"");
