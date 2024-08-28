@@ -1,38 +1,29 @@
 class Solution {
 public:
+  
     vector<string> generateParenthesis(int n) {
-        vector<string> result;
-        collectParenthese(result, "", 0, 0, n);
+        vector<string> res;
+        function<void(int, int, string)> result = [&](int o, int c, string update)
+        {
+            if (n == o && o == c) {
+                res.push_back(update);
+                return;
+            }
 
-        return result;
+            if (o < n) {
+                result(o + 1, c , update + "(");
+            } 
+
+            if ( c < o) {
+                result(o , c + 1, update + ")");
+
+            }
+        };
+
+        result(0,0,"");
+
+        return res;
     }
 
-    void collectParenthese(vector<string> & result, string collect, int openN, int closeN, int n) {
-        cout << "collect: " << collect << endl;
-        if (collect.length() == n*2 ) {
-            result.push_back(collect);
-            return;
-        }
-
-        if (openN < n) {
-            collect += '(';
-            collectParenthese(result, collect, openN + 1, closeN, n);
-            collect.pop_back();
-        }
-
-        // after adding all the cases for open, now i need to handle for the close parentheses.
-        if (closeN < openN) {
-            collect += ')';
-            collectParenthese(result,collect , openN, closeN + 1, n);
-            collect.pop_back();
-
-        }
-    }
-
+    
 };
-
-/* Note: 
-This is a backtracking problem. 
-
-
-*/
